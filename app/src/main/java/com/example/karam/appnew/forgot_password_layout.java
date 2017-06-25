@@ -1,6 +1,5 @@
 package com.example.karam.appnew;
 
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,14 +16,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class forgot_password_layout extends AppCompatActivity {
-    EditText email;
     EditText password;
     Button update;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password_layout);
-        email= (EditText) findViewById(R.id.email_id);
         password = (EditText) findViewById(R.id.pass_id);
         update = (Button) findViewById(R.id.update_btn);
 
@@ -33,6 +30,7 @@ public class forgot_password_layout extends AppCompatActivity {
     public void update_password (View v){
 
         String password_et = password.getText().toString();
+
 
         JSONObject job = new JSONObject();
 
@@ -55,7 +53,6 @@ public class forgot_password_layout extends AppCompatActivity {
                     if (response.getString("result").equals("done")) {
 
                         Toast.makeText(forgot_password_layout.this , "password updated successfully" ,Toast.LENGTH_SHORT).show();
-
 
 
                     } else {
@@ -84,4 +81,3 @@ public class forgot_password_layout extends AppCompatActivity {
 
     }
 }
-

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cloths"
+   >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:id="@+id/text_view"
+            android:textStyle="bold"
+            android:text="ADD PRODUCTS"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Enter Product Name"
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:layout_below="@id/text_view"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColorHint="#fff"
+            android:background="@drawable/rounded_rectangle"
+            android:id="@+id/product_name_id"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint=" Enter Description"
+            android:textColor="#fff"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColorHint="#fff"
+            android:background="@drawable/rounded_rectangle"
+            android:imeOptions="actionDone"
+            android:layout_below="@+id/product_name_id"
+            android:id="@+id/descp_id"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_below="@id/descp_id"
+            android:background="@drawable/rounded_rectangle"
+            android:padding="10dp"
+           android:id="@+id/gender_layout"
+            >
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#000"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/gender_id"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_below="@id/gender_layout"
+            android:background="@drawable/rounded_rectangle"
+            android:padding="10dp"
+            android:id="@+id/size_layout"
+            >
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#000"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/size_id"/>
+
+
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/size_layout"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="Next"
+            android:textSize="20dp"
+            android:id="@+id/next_button"
+            android:onClick="register"
+            android:background="@drawable/rounded_rectangle"/>
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+

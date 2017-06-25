@@ -17,61 +17,48 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class forgot_password_email extends AppCompatActivity {
-
+public class find_product extends AppCompatActivity {
+    EditText pro_id;
+    Button get_pro_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password_email);
+        setContentView(R.layout.activity_find_product);
 
+        pro_id = (EditText) findViewById(R.id.product_id );
+        get_pro_id=(Button) findViewById(R.id.get_product_id);
     }
 
-
-    public void verify_button(View v) {
-
-
-        EditText email_idd = (EditText) findViewById(R.id.email_id);
-
-        final String email = email_idd.getText().toString();
-
-
+    public void get_product(View v)
+    {
+        String product_id = pro_id.getText().toString();
 
         JSONObject job = new JSONObject();
 
         try {
-            job.put("email_key", email);
+            job.put("add_product_id", product_id);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        JsonObjectRequest jobreq = new JsonObjectRequest("http://" + Internet_address.ip + "/new_app/verify_email.php", job, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jobreq = new JsonObjectRequest("http://"+Internet_address.ip+"/new_app/find_product.php", job, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
                 try {
-                    if (response.getString("key").equals("done")) {
+                    if(response.getString("result").equals(""))
+                    {
 
-                        SharedPreferences.Editor sp = getSharedPreferences("user_info", MODE_PRIVATE).edit();
-
-                        sp.putString("user_id", response.getString("user_id"));
-
-                        sp.commit();
-
-                        int randompin =   (int) (((Math.random())*9000)+1000);
-
-                        Intent i = new Intent(forgot_password_email.this ,forgot_password_user_verify.class);
-
-                        i.putExtra("email_key", email);
-
-                        i.putExtra("pin_key" , randompin);
+                        Intent i = new Intent(find_product.this, get_product.class);
 
                         startActivity(i);
                         finish();
+                    }
 
-                    } else {
-                        Toast.makeText(forgot_password_email.this, "Enter correct email", Toast.LENGTH_SHORT).show();
+                    else {
+                        Toast.makeText(find_product.this, "error", Toast.LENGTH_SHORT).show();
 
                     }
                 } catch (JSONException e) {
@@ -90,11 +77,9 @@ public class forgot_password_email extends AppCompatActivity {
 
         jobreq.setRetryPolicy(new DefaultRetryPolicy(20000, 2, 2));
 
-        AppController app = new AppController(forgot_password_email.this);
+        AppController app = new AppController(find_product.this);
 
         app.addToRequestQueue(jobreq);
     }
 
-
 }
-

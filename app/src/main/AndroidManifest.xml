@@ -21,7 +21,12 @@
         <activity android:name=".sign_up_layout" />
         <activity android:name=".forgot_password_layout" />
         <activity android:name=".forgot_password_email" />
-        <activity android:name=".forgot_password_user_verify"></activity>
+        <activity android:name=".forgot_password_user_verify" />
+        <activity android:name=".Add_products" />
+        <activity android:name=".View_products" />
+        <activity android:name=".upload_product_image" />
+        <activity android:name=".find_product" />
+        <activity android:name=".get_product"></activity>
     </application>
 
 </manifest>

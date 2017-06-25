@@ -55,9 +55,7 @@ public class login_layout extends AppCompatActivity {
                         Toast.makeText(login_layout.this, " done ", Toast.LENGTH_SHORT).show();
 
                         SharedPreferences.Editor sp = getSharedPreferences("user_info",MODE_PRIVATE).edit();
-
                         sp.putString("user_id",response.getString("user_id"));
-
                         sp.commit();
 
                         Intent i = new Intent(login_layout.this ,MainActivity.class);
